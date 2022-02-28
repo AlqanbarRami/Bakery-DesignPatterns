@@ -15,6 +15,7 @@ public class StageEight implements CakesCommand {
 
     @Override
     public void execute() {
+        chocolateCake.setRaspberry(true);
         chocolateCakeStages.StageEight();
         chocolateCake.setCakeStatus("Done");
     }

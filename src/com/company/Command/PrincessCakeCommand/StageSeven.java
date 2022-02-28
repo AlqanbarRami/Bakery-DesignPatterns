@@ -14,6 +14,7 @@ public class StageSeven  implements CakesCommand {
 
     @Override
     public void execute() {
+        princessCake.setGreenMarzipanLid(true);
         princessCakeStages.StageSeven();
     }
 }

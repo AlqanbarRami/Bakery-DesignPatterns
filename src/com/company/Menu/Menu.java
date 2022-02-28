@@ -46,7 +46,6 @@ public class Menu {
                     break;
                 case "3":
                     NewOrder("chocolate");
-
                     break;
                 default:
                     System.out.println("Input Fail!");

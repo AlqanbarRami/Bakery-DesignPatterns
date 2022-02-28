@@ -34,6 +34,9 @@ public class OperaMenu {
                 cakePipeline.PlaceCommand(new StageNine(operaCake));
                 cakePipeline.execute();
                 TimeUnit.SECONDS.sleep(2);
+
+                //This is just to show you now we have just one object , Variables Status after the order
+                System.out.println(operaCake);
              }
 
 }

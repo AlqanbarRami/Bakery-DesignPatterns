@@ -2,6 +2,7 @@ package com.company.Models;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.Arrays;
 
 public class PrincessCake {
 
@@ -89,5 +90,20 @@ public class PrincessCake {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return "PrincessCake{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", cakeBase=" + Arrays.toString(cakeBase) +
+                ", whippedCream=" + whippedCream +
+                ", vanillaCream=" + Arrays.toString(vanillaCream) +
+                ", greenMarzipanLid=" + greenMarzipanLid +
+                ", marzipanRose=" + marzipanRose +
+                ", powderSugar=" + powderSugar +
+                ", cakeStatus='" + cakeStatus + '\'' +
+                '}';
     }
 }

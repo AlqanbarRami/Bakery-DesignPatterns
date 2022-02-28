@@ -14,6 +14,7 @@ public class StageSix implements CakesCommand {
 
     @Override
     public void execute() {
+        princessCake.setWhippedCream(true);
         princessCakeStages.StageSix();
     }
 }

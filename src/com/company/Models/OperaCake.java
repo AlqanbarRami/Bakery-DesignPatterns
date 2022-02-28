@@ -2,6 +2,7 @@ package com.company.Models;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.Arrays;
 
 public class OperaCake {
 
@@ -100,5 +101,19 @@ public class OperaCake {
         return name;
     }
 
-
+    @Override
+    public String toString() {
+        return "OperaCake{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", cakeBase=" + Arrays.toString(cakeBase) +
+                ", whippedCream=" + whippedCream +
+                ", vanillaCream=" + vanillaCream +
+                ", raspberryJam=" + raspberryJam +
+                ", pinkMarzipanLid=" + pinkMarzipanLid +
+                ", marzipanRose=" + marzipanRose +
+                ", powderSugar=" + powderSugar +
+                ", cakeStatus='" + cakeStatus + '\'' +
+                '}';
+    }
 }

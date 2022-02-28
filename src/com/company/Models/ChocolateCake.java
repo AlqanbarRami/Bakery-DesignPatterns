@@ -2,6 +2,7 @@ package com.company.Models;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.Arrays;
 
 public class ChocolateCake {
 
@@ -80,5 +81,19 @@ public class ChocolateCake {
 
     public void setChocolateGanache(boolean chocolateGanache) {
         this.chocolateGanache = chocolateGanache;
+    }
+
+    @Override
+    public String toString() {
+        return "ChocolateCake{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", chocolateCakeBase=" + Arrays.toString(chocolateCakeBase) +
+                ", chocolateButtercream=" + chocolateButtercream +
+                ", raspberryMousse=" + Arrays.toString(raspberryMousse) +
+                ", raspberry=" + raspberry +
+                ", chocolateGanache=" + chocolateGanache +
+                ", cakeStatus='" + cakeStatus + '\'' +
+                '}';
     }
 }

@@ -15,6 +15,7 @@ public class StageEight implements CakesCommand {
 
     @Override
     public void execute() {
+        operaCake.setMarzipanRose(true);
         operaCakeStages.StageEight();
     }
 }

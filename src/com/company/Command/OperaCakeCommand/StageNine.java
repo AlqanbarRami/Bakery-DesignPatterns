@@ -13,7 +13,7 @@ public class StageNine implements CakesCommand {
 
     @Override
     public void execute() {
-        operaCakeStages.StageNine();
+        operaCake.setPowderSugar(true);
         operaCake.setCakeStatus("Done");
     }
 }

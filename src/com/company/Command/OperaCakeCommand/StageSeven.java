@@ -13,6 +13,7 @@ public class StageSeven implements CakesCommand {
 
     @Override
     public void execute() {
+        operaCake.setMarzipanRose(true);
         operaCakeStages.StageSeven();
     }
 }
