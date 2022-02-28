@@ -30,7 +30,7 @@ public class PrincessCake {
     }
 
     public void setCakeStatus(String Status) {
-        String oldStatus = "";
+            String oldStatus = "";
             oldStatus = this.cakeStatus;
             this.cakeStatus = Status;
             this.propertyChangeSupport.firePropertyChange("Order Status", oldStatus, this.cakeStatus);

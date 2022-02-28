@@ -1,7 +1,5 @@
 package com.company.SalesManager;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class SalesManager {
 

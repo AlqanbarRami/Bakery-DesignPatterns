@@ -11,32 +11,30 @@ import com.company.Models.PrincessCake;
 import java.util.concurrent.TimeUnit;
 
 
-public class PrincessMenu  {
+public class PrincessMenu {
 
 
-    public void PrincessCakeBaseStepsProcess(PrincessCake princessCake) throws InterruptedException {
+    public PrincessCake PrincessCakeBaseStepsProcess() throws InterruptedException {
         PrincessBuilder princessBuilder = new PrincessBuilder();
-                        princessBuilder.BringCakeBase(princessCake);
-                        princessBuilder.SpreadVanillaCream(princessCake);
-                        princessBuilder.PutSecondCakeBase(princessCake);
-                        princessBuilder.SpreadSecondVanillaCream(princessCake);
-                        princessBuilder.PutThirdCakeBase(princessCake);
-                        princessBuilder.PrincessCakeBuild();
-                        TimeUnit.SECONDS.sleep(2);
-                        PrincessCakeBaseFinalStepsProcess(princessCake);
+        princessBuilder.BringCakeBase();
+        princessBuilder.SpreadVanillaCream();
+        princessBuilder.PutSecondCakeBase();
+        princessBuilder.SpreadSecondVanillaCream();
+        princessBuilder.PutThirdCakeBase();
+        PrincessCake princessCake = princessBuilder.PrincessCakeBuild();
+        TimeUnit.SECONDS.sleep(2);
+        return princessCake;
     }
 
-    public void PrincessCakeBaseFinalStepsProcess( PrincessCake princessCake) throws InterruptedException {
-        CakePipeline cakePipeline =  new CakePipeline();
-                cakePipeline.PlaceCommand(new StageSix(princessCake));
-                cakePipeline.PlaceCommand(new StageSeven(princessCake));
-                cakePipeline.PlaceCommand(new StageEight(princessCake));
-                cakePipeline.PlaceCommand(new StageNine(princessCake));
-                cakePipeline.execute();
-                TimeUnit.SECONDS.sleep(2);
+    public void PrincessCakeBaseFinalStepsProcess(PrincessCake princessCake) throws InterruptedException {
+        CakePipeline cakePipeline = new CakePipeline();
+        cakePipeline.PlaceCommand(new StageSix(princessCake));
+        cakePipeline.PlaceCommand(new StageSeven(princessCake));
+        cakePipeline.PlaceCommand(new StageEight(princessCake));
+        cakePipeline.PlaceCommand(new StageNine(princessCake));
+        cakePipeline.execute();
+        TimeUnit.SECONDS.sleep(2);
 
-                //This is just to show you now we have just one object , Variables Status after the order
-                System.out.println(princessCake);
-     }
+    }
 
 }

@@ -13,16 +13,16 @@ import java.util.concurrent.TimeUnit;
 
 public class OperaMenu {
 
-    public void OperaCakeBaseStepsProcess(OperaCake operaCake) throws InterruptedException {
+    public OperaCake OperaCakeBaseStepsProcess() throws InterruptedException {
         OperaBuilder operaBuilder = new OperaBuilder();
-                operaBuilder.BringCakeBase(operaCake);
-                operaBuilder.SpreadVanillaCream(operaCake);
-                operaBuilder.PutSecondCakeBase(operaCake);
-                operaBuilder.SpreadRaspberryJam(operaCake);
-                operaBuilder.PutThirdCakeBase(operaCake);
-                operaBuilder.PrincessCakeBuild();
+                operaBuilder.BringCakeBase();
+                operaBuilder.SpreadVanillaCream();
+                operaBuilder.PutSecondCakeBase();
+                operaBuilder.SpreadRaspberryJam();
+                operaBuilder.PutThirdCakeBase();
+                OperaCake operaCake =  operaBuilder.PrincessCakeBuild();
                 TimeUnit.SECONDS.sleep(2);
-                OperaCakeBaseFinalStepsProcess(operaCake);
+                return operaCake;
 
 
     }
@@ -35,8 +35,6 @@ public class OperaMenu {
                 cakePipeline.execute();
                 TimeUnit.SECONDS.sleep(2);
 
-                //This is just to show you now we have just one object , Variables Status after the order
-                System.out.println(operaCake);
              }
 
 }

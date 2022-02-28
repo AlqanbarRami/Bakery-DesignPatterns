@@ -5,7 +5,6 @@ import com.company.Models.ChocolateCake;
 import com.company.Models.Customer;
 import com.company.Models.OperaCake;
 import com.company.Models.PrincessCake;
-import com.company.Observer.VdControl;
 import com.company.SalesManager.SalesManager;
 
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ public class Menu {
     PrincessMenu princessMenu = new PrincessMenu();
     OperaMenu operaMenu = new OperaMenu();
     ChocolateMenu chocolateMenu = new ChocolateMenu();
-    List<SalesManager> orderHistory = new ArrayList<SalesManager>();
+    List<SalesManager> orderHistory = new ArrayList<>();
     String name;
 
     static int id = 0;
@@ -29,11 +28,11 @@ public class Menu {
         System.out.println("Enter your name : ");
         Scanner scanner = new Scanner(System.in);
         name = scanner.nextLine();
-
             System.out.println("Please choose one : ");
             System.out.println("1- Princess Cake");
             System.out.println("2- Opera Cake");
             System.out.println("3- Chocolate Cake");
+            System.out.println("4- Exit");
             System.out.println("\nEnter number ex 1 ");
             Scanner ChooseCake = new Scanner(System.in);
             String number = ChooseCake.nextLine();
@@ -47,6 +46,10 @@ public class Menu {
                 case "3":
                     NewOrder("chocolate");
                     break;
+                case "4":
+                    continueMenu = false;
+                    System.out.println("Thanks");
+                    break;
                 default:
                     System.out.println("Input Fail!");
 
@@ -57,33 +60,31 @@ public class Menu {
 
 
     public void NewOrder(String CakeName) throws InterruptedException {
-        VdControl vdControl = new VdControl();
         SalesManager salesManager;
         Customer customer = new Customer();
         customer.setId(++id);
         customer.setName(name);
         switch (CakeName.toLowerCase()){
             case "princess":
-                PrincessCake princessCake = new PrincessCake();
-                princessCake.addPropertyChangeListener(vdControl);
-                princessCake.setCakeStatus("Order -> Princess");
-                princessMenu.PrincessCakeBaseStepsProcess(princessCake);
+                // Builder will build my object and return it, I need it for final stages and SalesManager
+                PrincessCake princessCake = princessMenu.PrincessCakeBaseStepsProcess();
+                // Send Same Object to Command
+                princessMenu.PrincessCakeBaseFinalStepsProcess(princessCake);
+
                 salesManager = new SalesManager(customer.getId(),customer.getName(),princessCake.getId(),princessCake.getName());
                 orderHistory.add(salesManager);
                 break;
             case "opera":
-                OperaCake operaCake = new OperaCake();
-                operaCake.addPropertyChangeListener(vdControl);
-                operaCake.setCakeStatus("Order -> Opera");
-                operaMenu.OperaCakeBaseStepsProcess(operaCake);
-                salesManager = new SalesManager(customer.getId(),customer.getName(),operaCake.getId(),operaCake.getName());
-                orderHistory.add(salesManager);
+                  // Builder will build my object and return it, I need it for final stages and SalesManager
+                  OperaCake operaCake =  operaMenu.OperaCakeBaseStepsProcess();
+                  // Send Same Object to Command
+                  operaMenu.OperaCakeBaseFinalStepsProcess(operaCake);
+                  salesManager = new SalesManager(customer.getId(),customer.getName(),operaCake.getId(),operaCake.getName());
+                  orderHistory.add(salesManager);
                 break;
             case "chocolate":
-                ChocolateCake chocolateCake = new ChocolateCake();
-                chocolateCake.addPropertyChangeListener(vdControl);
-                chocolateCake.setCakeStatus("Order -> Chocolate");
-                chocolateMenu.ChocolateCakeBaseStepsProcess(chocolateCake);
+                ChocolateCake chocolateCake = chocolateMenu.ChocolateCakeBaseStepsProcess();
+                chocolateMenu.ChocolateCakeBaseFinalStepsProcess(chocolateCake);
                 salesManager = new SalesManager(customer.getId(),customer.getName(),chocolateCake.getId(),chocolateCake.getName());
                 orderHistory.add(salesManager);
                 break;

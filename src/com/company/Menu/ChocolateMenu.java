@@ -11,16 +11,16 @@ import java.util.concurrent.TimeUnit;
 
 
 public class ChocolateMenu {
-    public void ChocolateCakeBaseStepsProcess(ChocolateCake chocolateCake) throws InterruptedException {
+    public ChocolateCake ChocolateCakeBaseStepsProcess() throws InterruptedException {
         ChocolateBuilder chocolateBuilder = new ChocolateBuilder();
-        chocolateBuilder.BringChocolateCakeBase(chocolateCake);
-        chocolateBuilder.SpreadRaspberryMousse(chocolateCake);
-        chocolateBuilder.PutSecondChocolateCakeBase(chocolateCake);
-        chocolateBuilder.SpreadSecondRaspberryMousse(chocolateCake);
-        chocolateBuilder.PutThirdChocolateCakeBase(chocolateCake);
-        chocolateBuilder.ChocolateCakeBuild();
+        chocolateBuilder.BringChocolateCakeBase();
+        chocolateBuilder.SpreadRaspberryMousse();
+        chocolateBuilder.PutSecondChocolateCakeBase();
+        chocolateBuilder.SpreadSecondRaspberryMousse();
+        chocolateBuilder.PutThirdChocolateCakeBase();
+        ChocolateCake chocolateCake = chocolateBuilder.ChocolateCakeBuild();
         TimeUnit.SECONDS.sleep(2);
-        ChocolateCakeBaseFinalStepsProcess(chocolateCake);
+        return chocolateCake;
 
     }
     public void ChocolateCakeBaseFinalStepsProcess(ChocolateCake chocolateCake) throws InterruptedException {
@@ -30,9 +30,6 @@ public class ChocolateMenu {
                 cakePipeline.PlaceCommand(new StageEight(chocolateCake));
                 cakePipeline.execute();
                 TimeUnit.SECONDS.sleep(2);
-
-               //This is just to show you now we have just one object , Variables Status after the order
-                System.out.println(chocolateCake);
 
             }
 
