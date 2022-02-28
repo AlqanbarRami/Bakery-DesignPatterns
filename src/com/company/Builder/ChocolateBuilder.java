@@ -2,48 +2,48 @@ package com.company.Builder;
 
 import com.company.Models.ChocolateCake;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class ChocolateBuilder {
-    ChocolateCake chocolateCake = new ChocolateCake();
+
     private boolean[] stages= new boolean[5];
-    public String BringChocolateCakeBase(){
+
+    public void BringChocolateCakeBase(ChocolateCake chocolateCake){
         chocolateCake.setChocolateCakeBase(0,true);
         stages[0] = true;
-        return "Done : Cake Base is Ready!";
+        System.out.println("Done : Cake Base is Ready!");
     }
 
-    public String SpreadRaspberryMousse(){
+    public void SpreadRaspberryMousse(ChocolateCake chocolateCake){
         chocolateCake.setRaspberryMousse(0,true);
         stages[1] = true;
-        return "Done : Spreading a layer of Raspberry Mousse";
+        System.out.println("Done : Spreading a layer of Raspberry Mousse");
     }
 
-    public String PutSecondChocolateCakeBase(){
+    public void PutSecondChocolateCakeBase(ChocolateCake chocolateCake){
         chocolateCake.setChocolateCakeBase(1,true);
         stages[2] = true;
-        return "Done : Added Second Chocolate Cake Base";
+        System.out.println("Done : Added Second Chocolate Cake Base");
     }
 
-    public String SpreadSecondRaspberryMousse(){
+    public void SpreadSecondRaspberryMousse(ChocolateCake chocolateCake){
         chocolateCake.setRaspberryMousse(1,true);
         stages[3] = true;
-        return "Done : Spreading another layer of Raspberry Mousse";
+        System.out.println("Done : Spreading another layer of Raspberry Mousse");
     }
 
-    public String PutThirdChocolateCakeBase(){
+    public void PutThirdChocolateCakeBase(ChocolateCake chocolateCake){
         chocolateCake.setChocolateCakeBase(2,true);
         stages[4] = true;
-        return "Done : Added Third Chocolate Cake Base";
+        System.out.println("Done : Added Third Chocolate Cake Base");
     }
 
-    public String ChocolateCakeBuild(){
+    public void ChocolateCakeBuild(){
         for (boolean stage : stages) {
             if (!stage) {
-                return "Some Stage is missing";
+                System.out.println("Some Stage is missing");
             }
         }
-        return  "Base of the cake is ready!";
+        System.out.println("Base of the cake is ready!");
     }
 }

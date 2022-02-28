@@ -2,51 +2,48 @@ package com.company.Builder;
 
 import com.company.Models.OperaCake;
 
-public class OperaBuilder implements SharedStages{
+public class OperaBuilder {
 
-    OperaCake operaCake = new OperaCake();
     private boolean[] stages= new boolean[5];
 
 
-    @Override
-    public String BringCakeBase(){
+    public void BringCakeBase(OperaCake operaCake){
         operaCake.setCakeBase(0, true);
         stages[0] = true;
-        return "Done : Cake Base is Ready!";
+        System.out.println("Done : Cake Base is Ready!");
     }
-    @Override
-    public String SpreadVanillaCream(){
+
+    public void SpreadVanillaCream(OperaCake operaCake){
         operaCake.setVanillaCream(true);
         stages[1] = true;
-
-        return "Done : Spreading a layer of vanilla cream";
+        System.out.println("Done : Spreading a layer of vanilla cream");
     }
-    @Override
-    public String PutSecondCakeBase(){
+
+    public void PutSecondCakeBase(OperaCake operaCake){
         operaCake.setCakeBase(1,true);
         stages[2] = true;
-        return "Done : Added Second Cake Base";
+        System.out.println("Done : Added Second Cake Base");
     }
 
-    public String SpreadRaspberryJam(){
+    public void SpreadRaspberryJam(OperaCake operaCake){
         operaCake.setRaspberryJam(true);
         stages[3] = true;
-        return "Done : Spreading a layer of raspberry Jam";
+        System.out.println("Done : Spreading a layer of raspberry Jam");
     }
 
-    @Override
-    public String PutThirdCakeBase(){
+
+    public void PutThirdCakeBase(OperaCake operaCake){
         operaCake.setCakeBase(2,true);
         stages[4] = true;
-        return "Done : Added Third Cake Base";
+        System.out.println("Done : Added Third Cake Base");
     }
 
-    public String PrincessCakeBuild(){
+    public void PrincessCakeBuild(){
         for (boolean stage : stages) {
             if (!stage) {
-                return "Some Stage is missing";
+                System.out.println("Some Stage is missing");
             }
         }
-      return  "Base of the cake is ready!";
+      System.out.println("Base of the cake is ready!");
     }
 }
